@@ -1,0 +1,118 @@
+================================================================================
+                        EvacuAi QUICK REFERENCE CARD
+================================================================================
+
+WHAT TO INSTALL (One-Time Only)
+================================================================================
+
+1. Node.js (REQUIRED)
+   Download: https://nodejs.org/
+   Get: LTS version (v20 or v22)
+   Verify: node --version
+
+2. Git (Optional)
+   Download: https://git-scm.com/
+
+3. Code Editor (Optional - Recommended)
+   Download: https://code.visualstudio.com/
+
+================================================================================
+FIRST TIME SETUP (5 minutes)
+================================================================================
+
+1. Download project ZIP from v0.app or clone from GitHub
+
+2. Open Terminal/Command Prompt and navigate:
+   cd path/to/evacuai-system
+
+3. Install dependencies (do this once):
+   npm install
+
+4. Start development server:
+   npm run dev
+
+5. Open browser to:
+   http://localhost:3000
+
+================================================================================
+QUICK COMMANDS
+================================================================================
+
+Start development server:
+   npm run dev
+   (Then visit http://localhost:3000)
+
+Stop the server:
+   Ctrl + C (or Cmd + C on Mac)
+
+Install dependencies:
+   npm install
+
+Build for production:
+   npm run build
+
+View built project:
+   npm run preview
+
+================================================================================
+PROJECT STRUCTURE
+================================================================================
+
+src/pages/          ← 3 main pages (home, map, dashboard)
+src/components/     ← React components
+src/lib/            ← Data and utilities
+public/             ← SEO files (robots.txt, sitemap.xml)
+index.html          ← Main HTML file
+vite.config.ts      ← Vite configuration
+package.json        ← Dependencies
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+"npm: command not found"
+→ Restart computer after installing Node.js
+
+"Cannot find module"
+→ Run: npm install
+
+Port 3000 in use:
+→ Run: npm run dev -- --port 3001
+
+Changes not showing:
+→ Hard refresh: Ctrl + Shift + R (Cmd + Shift + R on Mac)
+
+================================================================================
+DOCUMENTATION FILES
+================================================================================
+
+LOCAL_SETUP_GUIDE.md    ← Detailed setup instructions
+QUICKSTART.md           ← Quick 5-minute guide
+README.md               ← Full project documentation
+SEO_GUIDE.md            ← SEO & deployment instructions
+MIGRATION_GUIDE.md      ← Technical migration details
+
+================================================================================
+DEPLOYMENT (When Ready)
+================================================================================
+
+Deploy to Vercel (Recommended):
+   npm install -g vercel
+   vercel deploy
+
+Deploy to GitHub Pages:
+   Push to GitHub → Enable Pages in settings
+
+================================================================================
+TECHNOLOGIES
+================================================================================
+
+React 19               ← UI Framework
+Vite 5                 ← Build tool (fast!)
+React Router 6         ← Page navigation
+Three.js               ← 3D graphics
+Framer Motion          ← Animations
+Tailwind CSS           ← Styling
+TypeScript             ← Type safety
+
+================================================================================

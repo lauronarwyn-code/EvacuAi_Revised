@@ -1,0 +1,182 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                    EvacuAi SYSTEM - START HERE                            ║
+║                   Local Installation & Setup Guide                        ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+🎯 WHAT YOU NEED TO DO:
+
+1. ✅ Install Node.js (one-time)
+2. ✅ Download the project files
+3. ✅ Install dependencies (one-time per project)
+4. ✅ Run the development server
+5. ✅ Open in browser
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📥 STEP 1: INSTALL NODE.JS (Required - One Time)
+
+Download from: https://nodejs.org/
+- Click "LTS" button
+- Choose your OS (Windows/Mac/Linux)
+- Run installer
+- Click Next → Install → Finish
+- Restart your computer
+
+Verify it worked:
+  Open Terminal/Command Prompt and type:
+  node --version
+  
+Should show: v20.10.0 or higher (or v22.x)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📂 STEP 2: DOWNLOAD PROJECT FILES
+
+Option A (Easiest):
+  1. Go to v0.app where you created this
+  2. Click three dots (...) top right
+  3. Click "Download ZIP"
+  4. Extract the ZIP file
+  5. Remember the folder location
+
+Option B (With Git):
+  git clone https://github.com/your-username/evacuai.git
+  cd evacuai
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🚀 STEP 3: INSTALL DEPENDENCIES & RUN (One Time Per Computer)
+
+Open Terminal/Command Prompt:
+
+Windows:
+  cd C:\Users\YourName\Desktop\evacuai-system
+
+Mac/Linux:
+  cd ~/Desktop/evacuai-system
+
+Install dependencies (takes 2-5 minutes):
+  npm install
+
+Start the server:
+  npm run dev
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🌐 STEP 4: OPEN IN BROWSER
+
+When server starts, you'll see:
+  ➜ Local:   http://localhost:3000/
+
+Click that link OR open your browser and type:
+  http://localhost:3000
+
+🎉 You should see the EvacuAi homepage!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+⏸️  TO STOP THE SERVER:
+
+In Terminal window, press:
+  Ctrl + C (or Cmd + C on Mac)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+▶️  TO RUN AGAIN LATER:
+
+Just need to do this (no reinstall needed):
+  
+  1. Open Terminal/Command Prompt
+  2. Navigate to project: cd path/to/evacuai-system
+  3. Start server: npm run dev
+  4. Open: http://localhost:3000
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📋 WHAT GETS INSTALLED:
+
+When you run "npm install", these automatically download:
+
+✓ React 19              - UI framework
+✓ Vite 5                - Ultra-fast build tool
+✓ React Router 6        - Page navigation
+✓ Three.js              - 3D graphics
+✓ Framer Motion         - Animations
+✓ Tailwind CSS          - Styling
+✓ And 15+ more packages
+
+Total size: ~500 MB (in node_modules folder)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🐛 COMMON ISSUES:
+
+Q: "npm: command not found"
+A: Node.js didn't install correctly. Restart computer and try again.
+
+Q: "Cannot find module"
+A: Run: npm install
+
+Q: Port 3000 already in use
+A: Run: npm run dev -- --port 3001
+
+Q: Changes not showing
+A: Hard refresh: Ctrl + Shift + R (Cmd + Shift + R on Mac)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📚 MORE DOCUMENTATION:
+
+Read these files for detailed info:
+
+  LOCAL_SETUP_GUIDE.md    - Detailed step-by-step (copy/paste commands)
+  QUICKSTART.md           - 5-minute quick start
+  QUICK_REFERENCE.txt     - Command reference card
+  INSTALL_CHECKLIST.md    - Download checklist
+  README.md               - Full project documentation
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✨ KEY FILES IN YOUR PROJECT:
+
+src/pages/          - 3 pages (home, map, dashboard)
+src/components/     - React components
+src/lib/            - Data and utilities
+public/             - SEO files
+vite.config.ts      - Configuration
+package.json        - Dependencies list
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎯 QUICK COMMAND REFERENCE:
+
+Install dependencies:
+  npm install
+
+Start dev server:
+  npm run dev
+
+Stop server:
+  Ctrl + C
+
+Build for production:
+  npm run build
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🚀 READY TO START?
+
+1. Install Node.js: https://nodejs.org/
+2. Download project ZIP from v0.app
+3. Extract and open Terminal there
+4. Run: npm install
+5. Run: npm run dev
+6. Open: http://localhost:3000
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Need help? See: LOCAL_SETUP_GUIDE.md
+
+Let's go! 🎉

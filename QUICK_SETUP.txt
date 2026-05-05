@@ -1,0 +1,246 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║           EvacuAi - Complete System with MySQL & Real Maps               ║
+║                      QUICK SETUP REFERENCE                               ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+WHAT YOU NOW HAVE:
+✓ React Frontend (localhost:3000)
+✓ Express Backend (localhost:5000)
+✓ MySQL Database
+✓ User Authentication (Login/Register)
+✓ Real Leaflet Maps of Cebu City
+✓ Live Geolocation Tracking
+✓ Admin Dashboard
+✓ User Management (CRUD)
+✓ Socket.io Real-time Updates
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SETUP IN 3 STEPS:
+
+Step 1: Install MySQL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Download from: https://www.mysql.com/downloads/
+Set root password and remember it!
+
+Verify:
+  mysql -u root -p
+  (enter your password)
+
+Step 2: Setup Backend
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+cd backend
+cp .env.example .env
+
+Edit .env with your MySQL password:
+  DB_PASSWORD=your_mysql_password_here
+
+Install and setup:
+  npm install
+  node setup-database.js
+  npm run dev
+
+Backend runs on: http://localhost:5000
+
+Step 3: Start Frontend
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+cd .. (back to root)
+npm install (if not done)
+npm run dev
+
+Frontend runs on: http://localhost:3000
+
+═══════════════════════════════════════════════════════════════════════════════
+
+TEST WITH DEMO ACCOUNTS:
+
+Admin Account:
+  Email: admin@evacuai.com
+  Password: password123
+  (Can view all users, manage system)
+
+User Account:
+  Email: user@evacuai.com
+  Password: password123
+  (Can use map, report locations)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+KEY PAGES:
+
+Homepage          → http://localhost:3000/
+Login Page        → http://localhost:3000/login
+Register Page     → http://localhost:3000/register
+Map (with geo)    → http://localhost:3000/map (after login)
+Admin Dashboard   → http://localhost:3000/dashboard (admin only)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+DATABASE STRUCTURE:
+
+Tables in MySQL:
+  users              → User accounts and profiles
+  user_locations     → Geolocation data (lat, lng, timestamp)
+  evacuation_centers → 10 centers in Cebu City
+  user_sessions      → Online/offline tracking
+
+All data persists - survives app restart!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+FEATURES BY USER TYPE:
+
+Regular User:
+  ✓ Login/Register
+  ✓ View real map of Cebu
+  ✓ See your location (with permission)
+  ✓ Find nearby evacuation centers (within 5km)
+  ✓ Report center status
+  ✓ View profile
+
+Admin:
+  ✓ All user features
+  ✓ View all users
+  ✓ Edit/delete users
+  ✓ See live user locations
+  ✓ System statistics
+  ✓ Access control
+
+═══════════════════════════════════════════════════════════════════════════════
+
+API ENDPOINTS (for development):
+
+POST   /api/auth/register           → Create account
+POST   /api/auth/login              → Login
+POST   /api/auth/logout             → Logout
+GET    /api/users/profile           → Get profile
+PUT    /api/users/profile           → Update profile
+POST   /api/locations/update        → Send location
+GET    /api/locations/nearby        → Get nearby centers
+GET    /api/admin/users             → List all users (admin)
+GET    /api/admin/statistics        → System stats (admin)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+TROUBLESHOOTING:
+
+Problem: "Cannot connect to backend"
+Solution:
+  1. Check backend is running (npm run dev in /backend)
+  2. Check port 5000 is open
+  3. Check .env file exists in /backend
+
+Problem: "MySQL connection error"
+Solution:
+  1. Check MySQL is running
+  2. Verify username/password in .env
+  3. Try: mysql -u root -p (test MySQL)
+
+Problem: "Database setup failed"
+Solution:
+  1. Run: node setup-database.js again
+  2. Check MySQL is running
+  3. Check .env credentials
+
+Problem: "Location not showing"
+Solution:
+  1. Give browser location permission
+  2. Check location is enabled on device
+  3. Some browsers need HTTPS (not localhost)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+IMPORTANT FILES:
+
+Read these for more info:
+  BACKEND_SETUP.md          → Detailed backend setup
+  SYSTEM_COMPLETE_GUIDE.md  → Full system documentation
+  README.md                 → Project overview
+  QUICKSTART.md             → 5-minute start guide
+
+═══════════════════════════════════════════════════════════════════════════════
+
+TECH STACK:
+
+Frontend:
+  ✓ React 19
+  ✓ Vite 5 (fast build)
+  ✓ React Router 6 (navigation)
+  ✓ Leaflet.js (maps)
+  ✓ Tailwind CSS (styling)
+  ✓ Socket.io (real-time)
+
+Backend:
+  ✓ Express.js
+  ✓ Node.js
+  ✓ JWT Authentication
+  ✓ Socket.io
+  ✓ bcryptjs (password hashing)
+
+Database:
+  ✓ MySQL 5.7+
+  ✓ 4 tables (users, locations, centers, sessions)
+  ✓ Foreign keys & indexes
+  ✓ Full data persistence
+
+═══════════════════════════════════════════════════════════════════════════════
+
+NEXT STEPS:
+
+1. Complete setup above
+2. Test with demo accounts
+3. Create your own account
+4. Try geolocation on map
+5. Test admin dashboard
+6. Review SYSTEM_COMPLETE_GUIDE.md for details
+7. Deploy to production when ready
+
+═══════════════════════════════════════════════════════════════════════════════
+
+PRODUCTION DEPLOYMENT:
+
+Frontend: Deploy to Vercel
+Backend: Deploy to Heroku/Railway
+Database: Use managed MySQL (JawsDB, Planetscale, etc)
+
+See BACKEND_SETUP.md for production guide
+
+═══════════════════════════════════════════════════════════════════════════════
+
+COMMANDS CHEAT SHEET:
+
+Frontend (root directory):
+  npm run dev       → Start dev server
+  npm run build     → Build for production
+  npm install       → Install dependencies
+
+Backend (./backend directory):
+  npm install       → Install dependencies
+  npm run dev       → Start server
+  node setup-database.js  → Initialize database
+
+MySQL:
+  mysql -u root -p  → Connect to MySQL
+  SHOW DATABASES;   → List databases
+  USE evacuai_db;   → Select database
+  SHOW TABLES;      → Show tables
+  DESC users;       → Show table structure
+
+═══════════════════════════════════════════════════════════════════════════════
+
+YOU'RE ALL SET!
+
+Your complete EvacuAi evacuation management system is ready to use.
+
+Frontend: http://localhost:3000
+Backend:  http://localhost:5000
+Database: MySQL (local)
+
+Time to save lives! 🚀
+
+═══════════════════════════════════════════════════════════════════════════════

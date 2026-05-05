@@ -1,0 +1,187 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                         LOGIN FAILED TO FETCH FIX                         ║
+║                      Step-by-Step Solution (5 minutes)                     ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+THE PROBLEM:
+  Login page shows: "failed to fetch"
+  Reason: Backend server not running or not accessible
+  
+═══════════════════════════════════════════════════════════════════════════════
+
+THE SOLUTION (3 Quick Steps):
+
+STEP 1: Install MySQL Server
+  
+  Windows: https://www.mysql.com/downloads/mysql/
+  Mac: brew install mysql
+  Linux: sudo apt install mysql-server
+  
+  Then set a root password (you'll need this!)
+
+STEP 2: Setup Backend (one-time, takes 2 minutes)
+
+  Open TWO Command Prompts/Terminals
+
+  TERMINAL 1 - Setup Backend:
+  ─────────────────────────────
+  cd your/project/folder
+  cd backend
+  
+  Create file: .env
+  Add these lines (replace "password" with your MySQL password):
+  ──────────────────────────────────────────────────────────────
+  DB_HOST=localhost
+  DB_USER=root
+  DB_PASSWORD=password
+  DB_NAME=evacuai_db
+  PORT=5000
+  CLIENT_URL=http://localhost:3000
+  JWT_SECRET=your_secret_key_12345
+  ──────────────────────────────────────────────────────────────
+  
+  Then run:
+  npm install
+  node setup-database.js
+  
+  You should see:
+  "Database setup completed successfully!"
+
+STEP 3: Start Both Servers
+
+  TERMINAL 1 - Start Backend:
+  npm run dev
+  
+  Should show: "Server running on http://localhost:5000"
+  
+  TERMINAL 2 - Start Frontend:
+  cd project/folder
+  npm run dev
+  
+  Should show: "Local: http://localhost:3000/"
+
+═══════════════════════════════════════════════════════════════════════════════
+
+NOW TEST LOGIN:
+
+  Go to: http://localhost:3000/login
+  
+  Use test account:
+  Email: admin@evacuai.com
+  Password: admin123
+  
+  OR register a new account
+  
+  ✓ Should see dashboard now!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+IF STILL NOT WORKING:
+
+Problem: "Cannot connect to MySQL"
+  Solution: 
+  - Make sure MySQL is running
+  - Windows: Start MySQL Service
+  - Mac: brew services start mysql
+  - Check .env has correct password
+
+Problem: "Access denied for user 'root'"
+  Solution: Update DB_PASSWORD in .env file
+
+Problem: "Failed to fetch" still shows
+  Solution:
+  - Check Terminal 1 shows "Server running on http://localhost:5000"
+  - Check Terminal 2 shows "ready in XXX ms"
+  - Both must be running!
+  - Hard refresh browser: Ctrl+Shift+R
+
+Problem: "Table 'evacuai_db.users' doesn't exist"
+  Solution: Run: node setup-database.js
+
+═══════════════════════════════════════════════════════════════════════════════
+
+DATABASE STRUCTURE:
+
+Your system stores data in MySQL with 4 tables:
+
+1. USERS TABLE
+   - email (login email)
+   - password (hashed, secured)
+   - name (full name)
+   - phone (phone number)
+   - role (user or admin)
+   
+   When you register, data goes here.
+
+2. USER_LOCATIONS TABLE
+   - user_id (which user)
+   - lat, lng (latitude, longitude)
+   - timestamp (when location was recorded)
+   
+   When map shows your location, data goes here.
+
+3. EVACUATION_CENTERS TABLE (10 pre-filled for Cebu)
+   - name (e.g. "Lapu-Lapu Sports Complex")
+   - lat, lng (coordinates)
+   - capacity (how many people can fit)
+   - risk_level (safe, moderate, high, flooded)
+   - facilities (["water", "medical", "food"])
+   
+   Centers shown on map come from here.
+
+4. USER_SESSIONS TABLE
+   - user_id (which user)
+   - last_seen (last activity time)
+   - is_online (true or false)
+   
+   Tracks who's online right now.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+FLOW DIAGRAM:
+
+  1. You fill login form
+     Email: user@evacuai.com
+     Password: password123
+             ↓
+  2. Frontend sends to backend
+     POST http://localhost:5000/api/auth/login
+             ↓
+  3. Backend checks users table in MySQL
+     SELECT * FROM users WHERE email = 'user@evacuai.com'
+             ↓
+  4. Backend compares passwords (hashed)
+     If matches → Create JWT token
+             ↓
+  5. Token sent back to frontend
+     Stored in browser localStorage
+             ↓
+  6. Frontend redirects to dashboard
+     Shows: "Welcome back, User!"
+
+═══════════════════════════════════════════════════════════════════════════════
+
+NEED MORE HELP?
+
+Read these files:
+  DATABASE_AND_TROUBLESHOOTING.md - Detailed troubleshooting (500+ lines)
+  BACKEND_SETUP.md - Backend technical details
+  SYSTEM_COMPLETE_GUIDE.md - Full system overview
+
+═══════════════════════════════════════════════════════════════════════════════
+
+QUICK CHECKLIST:
+
+□ MySQL installed and running
+□ Backend .env file created with correct password
+□ npm install (in backend folder)
+□ node setup-database.js succeeded
+□ npm run dev (in backend folder) - shows "Server running"
+□ npm run dev (in project root) - shows "ready"
+□ Login page loads
+□ Test with admin@evacuai.com / admin123
+□ Dashboard shows after login
+
+═══════════════════════════════════════════════════════════════════════════════
+
+That's it! Your system should now work. 🎉
