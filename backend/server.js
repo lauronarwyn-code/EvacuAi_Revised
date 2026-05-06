@@ -56,9 +56,9 @@ app.get('/api/health', (req, res) => {
 });
 
 // Root route to prevent "Cannot GET /" in the browser
-app.get('/', (req, res) => {
-  res.send('EvacuAi API is online. Accessible endpoints: /api/centers, /api/health, etc.');
-});
+export default function handler(req, res) {
+  res.status(200).json({ ok: true, message: "route works" });
+}
 
 // --- Socket.io Logic ---
 // Handles real-time location updates for the Cebu City MapView
